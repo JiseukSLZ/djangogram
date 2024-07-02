@@ -16,6 +16,6 @@ class Post(TimeStampedModel):
     image_likes = models.ManyToManyField(user_models.User, related_name="post_image_likes")
 
 class Comment(TimeStampedModel):
-    author = models.ForeignKey(user_models.User, null=True, on_delete=models.CASCADE, related_name="post_author")
+    author = models.ForeignKey(user_models.User, null=True, on_delete=models.CASCADE, related_name="comment_author")
     post = models.ForeignKey(Post, null=True, on_delete=models.CASCADE, related_name="comment_post")
     contents = models.TextField(blank=True)
